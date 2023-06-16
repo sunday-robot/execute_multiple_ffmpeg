@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -17,17 +18,62 @@ namespace execute_multiple_ffmpeg
         {
             foreach (var arg in args)
             {
-                var r = Run(arg);
-                if (r != 0)
+                if (Directory.Exists(arg))
                 {
-                    Console.WriteLine($"{arg} : failed.({r})");
+                    RunDirectory(arg);
+                }
+                else
+                {
+                    if (!File.Exists(arg))
+                    {
+                        Console.WriteLine($"{arg} does not exists.");
+                        continue;
+                    }
+                    if (!IsMovieFile(arg))
+                    {
+                        continue;
+                    }
+                    RunFile(arg);
                 }
             }
             Console.ReadLine();
         }
 
-        static int Run(string filePath)
+        static bool IsMovieFile(string filePath)
         {
+            var ext = Path.GetExtension(filePath);
+            switch (ext.ToUpper())
+            {
+                case ".M4V":
+                case ".MP4":
+                case ".AVI":
+                case ".WMV":
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        static void RunDirectory(string directoryPath)
+        {
+            foreach (var directory in Directory.EnumerateDirectories(directoryPath))
+            {
+                RunDirectory(directory);
+            }
+            foreach (var file in Directory.EnumerateFiles(directoryPath))
+            {
+                if (!IsMovieFile(file))
+                {
+                    Console.WriteLine($"{file} is not movie file.");
+                    continue;
+                }
+                RunFile(file);
+            }
+        }
+
+        static void RunFile(string filePath)
+        {
+            Console.WriteLine($"{filePath}");
             var proc = new Process();
 
             proc.StartInfo.FileName = @"C:\user\ffmpeg\bin\ffmpeg.exe";
@@ -36,9 +82,16 @@ namespace execute_multiple_ffmpeg
                 + " -b_ref_mode 0"
                 + " -cq 38"
                 + " " + filePath + ".h265_nv_cq_38.mp4";
+#if true
             proc.Start();
             proc.WaitForExit();
-            return proc.ExitCode;
+            if (proc.ExitCode != 0)
+            {
+                Console.WriteLine($"  Error. ffmpeg terminated width exit code {proc.ExitCode}.");
+            }
+#else
+            Console.WriteLine($"{proc.StartInfo.Arguments}");
+#endif
         }
     }
 }
