@@ -77,17 +77,18 @@ namespace execute_multiple_ffmpeg
             var proc = new Process();
 
             proc.StartInfo.FileName = @"C:\user\ffmpeg\bin\ffmpeg.exe";
-            proc.StartInfo.Arguments = "-i " + filePath
+            proc.StartInfo.Arguments = "-i \"" + filePath + "\""
                 + " -c:v hevc_nvenc"
                 + " -b_ref_mode 0"
                 + " -cq 38"
-                + " " + filePath + ".h265_nv_cq_38.mp4";
+                + " \"" + filePath + ".h265_nv_cq_38.mp4\"";
 #if true
             proc.Start();
             proc.WaitForExit();
             if (proc.ExitCode != 0)
             {
                 Console.WriteLine($"  Error. ffmpeg terminated width exit code {proc.ExitCode}.");
+                Console.WriteLine($"  arguments = \"{proc.StartInfo.Arguments}\"");
             }
 #else
             Console.WriteLine($"{proc.StartInfo.Arguments}");
