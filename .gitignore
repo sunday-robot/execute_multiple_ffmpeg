@@ -1,3 +1,5 @@
 /.vs
 /execute_multiple_ffmpeg/bin
 /execute_multiple_ffmpeg/obj
+/execute_multiple_ffmpeg/Properties/PublishProfiles/FolderProfile.pubxml.user
+/execute_multiple_ffmpeg/execute_multiple_ffmpeg.csproj.user
