@@ -40,6 +40,7 @@ namespace execute_multiple_ffmpeg
             switch (ext.ToUpper())
             {
                 case ".M4V":
+                case ".MKV":
                 case ".MP4":
                 case ".AVI":
                 case ".WMV":
