@@ -9,77 +9,109 @@ namespace execute_multiple_ffmpeg
     {
         static void Main(string[] args)
         {
-            foreach (var arg in args)
-            {
-                if (Directory.Exists(arg))
+#if true
+            var encoderName = "hevc_nvenc";
+#else
+            var encoderName = "libx265";
+#endif
+
+            ForEachFile(
+                args,
+
+                // 動画ファイルかどうかの判定(ファイル名のみで判定)
+                (string filePath) =>
                 {
-                    RunDirectory(arg);
-                }
-                else
+                    var ext = Path.GetExtension(filePath);
+                    switch (ext.ToUpper())
+                    {
+                        case ".M4V":
+                        case ".MKV":
+                        case ".MP4":
+                        case ".MPG":
+                        case ".AVI":
+                        case ".WMV":
+                            return true;
+                        default:
+                            return false;
+                    }
+                },
+
+                // ffmpegの実行
+                (string filePath) =>
                 {
-                    if (!File.Exists(arg))
-                    {
-                        Console.WriteLine($"{arg} does not exists.");
-                        continue;
-                    }
-                    if (!IsMovieFile(arg))
-                    {
-                        continue;
-                    }
-                    RunFile(arg);
-                }
-            }
+                    ExecuteFfmpeg(
+                        filePath,
+                        encoderName,
+
+                        // オプション
+                        new string[] {
+#if false
+                        // Use B frames as references (from 0 to 2) (default disabled)
+                        //     disabled        0            E..V....... B frames will not be used for reference
+                        //     each            1            E..V....... Each B frame will be used for reference
+                        //     middle          2            E..V....... Only(number of B frames) / 2 will be used for reference
+                        "-b_ref_mode 0",
+#endif
+#if false
+                        // Set target quality level (0 to 51, 0 means automatic) for constant quality mode in VBR rate control (from 0 to 51) (default 0)
+                        "-cq 38"
+#endif
+                        });
+                });
+            Console.WriteLine("Finished.");
+            Console.WriteLine("Hit enter key.");
             Console.ReadLine();
         }
 
-        static bool IsMovieFile(string filePath)
+        static void ForEachFile(string[] filePathList, Func<string, bool> isTarget, Action<string> processor)
         {
-            var ext = Path.GetExtension(filePath);
-            switch (ext.ToUpper())
-            {
-                case ".M4V":
-                case ".MKV":
-                case ".MP4":
-                case ".AVI":
-                case ".WMV":
-                    return true;
-                default:
-                    return false;
-            }
+            foreach (var filePath in filePathList)
+                if (Directory.Exists(filePath))
+                    ProcessDirectory(filePath, isTarget, processor);
+                else
+                    ProcessFile(filePath, isTarget, processor);
         }
 
-        static void RunDirectory(string directoryPath)
+        static void ProcessDirectory(string parentDirectoryPath, Func<string, bool> isTarget, Action<string> processor)
         {
-            foreach (var directory in Directory.EnumerateDirectories(directoryPath))
+            foreach (var directoryPath in Directory.EnumerateDirectories(parentDirectoryPath))
+                ProcessDirectory(directoryPath, isTarget, processor);
+            foreach (var filePath in Directory.EnumerateFiles(parentDirectoryPath))
+                ProcessFile(filePath, isTarget, processor);
+        }
+
+        static void ProcessFile(string filePath, Func<string, bool> isTarget, Action<string> processor)
+        {
+            if (!File.Exists(filePath))
             {
-                RunDirectory(directory);
+                Console.WriteLine($"{filePath} does not exists.");
+                return;
             }
-            foreach (var file in Directory.EnumerateFiles(directoryPath))
-            {
-                if (!IsMovieFile(file))
+            if (!isTarget(filePath))
+                return;
+            processor(filePath);
+        }
+
+        static void ExecuteFfmpeg(string inputFilePath, string encoderName, string[] options)
+        {
+            Console.WriteLine($"{inputFilePath}");
+
+            var args = "-i";
+            args += " \"" + inputFilePath + "\"";
+            args += " -c:v " + encoderName;
+            var outputFilePath = inputFilePath + "." + encoderName;
+            foreach (var o in options)
+                foreach (var e in o.Split(' '))
                 {
-                    Console.WriteLine($"{file} is not movie file.");
-                    continue;
+                    args += " " + e;
+                    outputFilePath += "_" + e;
                 }
-                RunFile(file);
-            }
-        }
-
-        static void RunFile(string filePath)
-        {
-            Console.WriteLine($"{filePath}");
-            var proc = new Process();
-
-            proc.StartInfo.FileName = @"C:\user\ffmpeg\bin\ffmpeg.exe";
-            proc.StartInfo.Arguments = "-i \"" + filePath + "\""
-                + " -c:v hevc_nvenc"
-                + " -b_ref_mode 0"  // Use B frames as references (from 0 to 2) (default disabled)
-                                    //     disabled        0            E..V....... B frames will not be used for reference
-                                    //     each            1            E..V....... Each B frame will be used for reference
-                                    //     middle          2            E..V....... Only(number of B frames) / 2 will be used for reference
-                + " -cq 38" // Set target quality level (0 to 51, 0 means automatic) for constant quality mode in VBR rate control (from 0 to 51) (default 0)
-                + " \"" + filePath + ".h265_nv_cq_38.mp4\"";
+            outputFilePath += ".mp4";
+            args += " \"" + outputFilePath + "\"";
 #if true
+            var proc = new Process();
+            proc.StartInfo.FileName = @"C:\user\ffmpeg\bin\ffmpeg.exe";
+            proc.StartInfo.Arguments = args;
             proc.Start();
             proc.WaitForExit();
             if (proc.ExitCode != 0)
@@ -88,7 +120,7 @@ namespace execute_multiple_ffmpeg
                 Console.WriteLine($"  arguments = \"{proc.StartInfo.Arguments}\"");
             }
 #else
-            Console.WriteLine($"{proc.StartInfo.Arguments}");
+            Console.WriteLine($"{args}");
 #endif
         }
     }

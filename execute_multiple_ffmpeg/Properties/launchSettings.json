@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "execute_multiple_ffmpeg": {
+      "commandName": "Project",
+      "commandLineArgs": "..\\..\\..\\..\\test\r\n"
+    }
+  }
+}

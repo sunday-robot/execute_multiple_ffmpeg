@@ -3,3 +3,5 @@
 /execute_multiple_ffmpeg/obj
 /execute_multiple_ffmpeg/Properties/PublishProfiles/FolderProfile.pubxml.user
 /execute_multiple_ffmpeg/execute_multiple_ffmpeg.csproj.user
+/test/ghi/sample.mp4.h265_nv_-b_ref_mode_0_-cq_38.mp4
+/sample.mp4.libx265_-b_ref_mode_0_-cq_38.mp4
