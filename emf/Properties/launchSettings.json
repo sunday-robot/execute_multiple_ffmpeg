@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "emf": {
+      "commandName": "Project",
+      "commandLineArgs": "..\\..\\..\\..\\test"
+    }
+  }
+}

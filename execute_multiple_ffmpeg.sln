@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "execute_multiple_ffmpeg", "execute_multiple_ffmpeg\execute_multiple_ffmpeg.csproj", "{93A34498-5A7B-4B82-B85E-3990F6A2CCDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "execute_multiple_ffmpeg", "execute_multiple_ffmpeg\execute_multiple_ffmpeg.csproj", "{93A34498-5A7B-4B82-B85E-3990F6A2CCDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "emf_nv", "emf_nv\emf_nv.csproj", "{34574E33-8686-4252-8179-20EC315042FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libEmf", "libEmf\libEmf.csproj", "{E9E275CB-6D44-43D2-9562-B82721D15427}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "emf", "emf\emf.csproj", "{815E2868-E1EF-4C18-84A9-A993AA78A860}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{93A34498-5A7B-4B82-B85E-3990F6A2CCDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93A34498-5A7B-4B82-B85E-3990F6A2CCDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93A34498-5A7B-4B82-B85E-3990F6A2CCDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34574E33-8686-4252-8179-20EC315042FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34574E33-8686-4252-8179-20EC315042FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34574E33-8686-4252-8179-20EC315042FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34574E33-8686-4252-8179-20EC315042FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9E275CB-6D44-43D2-9562-B82721D15427}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9E275CB-6D44-43D2-9562-B82721D15427}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9E275CB-6D44-43D2-9562-B82721D15427}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9E275CB-6D44-43D2-9562-B82721D15427}.Release|Any CPU.Build.0 = Release|Any CPU
+		{815E2868-E1EF-4C18-84A9-A993AA78A860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{815E2868-E1EF-4C18-84A9-A993AA78A860}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{815E2868-E1EF-4C18-84A9-A993AA78A860}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{815E2868-E1EF-4C18-84A9-A993AA78A860}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
