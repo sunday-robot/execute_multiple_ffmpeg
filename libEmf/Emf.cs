@@ -17,6 +17,7 @@ namespace libEmf
                         case ".M4V":
                         case ".MKV":
                         case ".MP4":
+                        case ".MPEG":
                         case ".MPG":
                         case ".AVI":
                         case ".WMV":
