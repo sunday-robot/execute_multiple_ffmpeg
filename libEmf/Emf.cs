@@ -14,12 +14,13 @@ namespace libEmf
                     var ext = Path.GetExtension(filePath);
                     switch (ext.ToUpper())
                     {
+                        case ".AVI":
                         case ".M4V":
                         case ".MKV":
                         case ".MP4":
                         case ".MPG":
-                        case ".AVI":
                         case ".WMV":
+                        case ".VOB":
                             return true;
                         default:
                             return false;
