@@ -8,7 +8,7 @@ namespace libEmf
         {
             ForEachFile(
                 filePath,
-                // 動画ファイルかどうかの判定(ファイル名のみで判定)
+                // 動画ファイルかどうかの判定(拡張子のみで判定)
                 (string filePath) =>
                 {
                     var ext = Path.GetExtension(filePath);
@@ -20,8 +20,9 @@ namespace libEmf
                         case ".MP4":
                         case ".MPEG":
                         case ".MPG":
-                        case ".WMV":
+                        case ".TS":
                         case ".VOB":
+                        case ".WMV":
                             return true;
                         default:
                             return false;
