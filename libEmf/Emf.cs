@@ -20,6 +20,7 @@ namespace libEmf
                         case ".MP4":
                         case ".MPEG":
                         case ".MPG":
+                        case ".RMVB":
                         case ".TS":
                         case ".VOB":
                         case ".WMV":
