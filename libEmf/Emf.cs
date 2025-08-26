@@ -9,7 +9,7 @@ namespace libEmf
             ForEachFile(
                 filePath,
                 // 動画ファイルかどうかの判定(拡張子のみで判定)
-                (string filePath) =>
+                filePath =>
                 {
                     var ext = Path.GetExtension(filePath);
                     switch (ext.ToUpper())
@@ -30,7 +30,7 @@ namespace libEmf
                     }
                 },
                 // ffmpegの実行
-                (string filePath) =>
+                filePath =>
                 {
                     ExecuteFfmpeg(
                         filePath,
@@ -51,11 +51,16 @@ namespace libEmf
                     ProcessFile(filePath, isTarget, processor);
         }
 
+        static List<string> SortByName(IEnumerable<string> paths)
+        {
+            return paths.OrderBy(p => Path.GetFileName(p), StringComparer.OrdinalIgnoreCase).ToList();
+        }
+
         static void ProcessDirectory(string parentDirectoryPath, Func<string, bool> isTarget, Action<string> processor)
         {
-            foreach (var directoryPath in Directory.EnumerateDirectories(parentDirectoryPath))
+            foreach (var directoryPath in SortByName(Directory.EnumerateDirectories(parentDirectoryPath)))
                 ProcessDirectory(directoryPath, isTarget, processor);
-            foreach (var filePath in Directory.EnumerateFiles(parentDirectoryPath))
+            foreach (var filePath in SortByName(Directory.EnumerateFiles(parentDirectoryPath)))
                 ProcessFile(filePath, isTarget, processor);
         }
 
