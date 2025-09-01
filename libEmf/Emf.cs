@@ -20,6 +20,21 @@ namespace libEmf
             Console.ReadLine();
         }
 
+        static readonly HashSet<string> movieExtensions = [
+            ".ASF",
+            ".AVI",
+            ".M4V",
+            ".MKV",
+            ".MP4",
+            ".MPEG",
+            ".MPG",
+            ".RM",
+            ".RMVB",
+            ".TS",
+            ".VOB",
+            ".WMV"
+        ];
+
         /// <summary>
         /// 動画ファイルかどうかを返す。拡張子で判断するだけのもの。
         /// </summary>
@@ -28,23 +43,8 @@ namespace libEmf
         static bool HasMovieFileExtension(string filePath)
         {
             var ext = Path.GetExtension(filePath);
-            switch (ext.ToUpper())
-            {
-                case ".ASF":
-                case ".AVI":
-                case ".M4V":
-                case ".MKV":
-                case ".MP4":
-                case ".MPEG":
-                case ".MPG":
-                case ".RMVB":
-                case ".TS":
-                case ".VOB":
-                case ".WMV":
-                    return true;
-                default:
-                    return false;
-            }
+            ext = ext.ToUpper();
+            return movieExtensions.Contains(ext);
         }
 
         static void ExecuteFfmpeg(string inputFilePath, string encoderName, string[] options)

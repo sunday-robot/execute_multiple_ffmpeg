@@ -5,15 +5,15 @@
         internal static void Do(IEnumerable<string> paths, Action<string> processor)
         {
             foreach (var e in paths)
-                if (Directory.Exists(e))
-                    ProcessDirectory(e, processor);
-                else
-                    processor(e);
+                Do(e, processor);
         }
 
-        static IEnumerable<string> SortByName(IEnumerable<string> paths)
+        internal static void Do(string path, Action<string> processor)
         {
-            return paths.OrderBy(e => Path.GetFileName(e), StringComparer.OrdinalIgnoreCase);
+            if (Directory.Exists(path))
+                ProcessDirectory(path, processor);
+            else
+                processor(path);
         }
 
         static void ProcessDirectory(string directoryPath, Action<string> processor)
@@ -25,6 +25,11 @@
             var sortedFilePaths = SortByName(Directory.EnumerateFiles(directoryPath));
             foreach (var e in sortedFilePaths)
                 processor(e);
+        }
+
+        static IEnumerable<string> SortByName(IEnumerable<string> paths)
+        {
+            return paths.OrderBy(e => Path.GetFileName(e), StringComparer.OrdinalIgnoreCase);
         }
     }
 }
