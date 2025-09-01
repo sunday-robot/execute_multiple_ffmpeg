@@ -10,7 +10,8 @@ namespace libEmf
                 paths,
                 filePath =>
                 {
-                    if (!HasMovieFileExtension(filePath))
+                    var ext = Path.GetExtension(filePath);
+                    if (!videoFileExtensions.Contains(ext))
                         return;
 
                     ExecuteFfmpeg(filePath, encoderName, options);
@@ -20,7 +21,10 @@ namespace libEmf
             Console.ReadLine();
         }
 
-        static readonly HashSet<string> movieExtensions = [
+        /// <summary>
+        /// 動画ファイルの拡張子のセット(OOrdinalIgnoreCaseは、大文字小文字を区別しないようにするためのもの)
+        /// </summary>
+        static readonly HashSet<string> videoFileExtensions = new(StringComparer.OrdinalIgnoreCase) {
             ".ASF",
             ".AVI",
             ".M4V",
@@ -33,19 +37,7 @@ namespace libEmf
             ".TS",
             ".VOB",
             ".WMV"
-        ];
-
-        /// <summary>
-        /// 動画ファイルかどうかを返す。拡張子で判断するだけのもの。
-        /// </summary>
-        /// <param name="filePath"></param>
-        /// <returns></returns>
-        static bool HasMovieFileExtension(string filePath)
-        {
-            var ext = Path.GetExtension(filePath);
-            ext = ext.ToUpper();
-            return movieExtensions.Contains(ext);
-        }
+        };
 
         static void ExecuteFfmpeg(string inputFilePath, string encoderName, string[] options)
         {
