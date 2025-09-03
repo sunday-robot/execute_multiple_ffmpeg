@@ -28,6 +28,7 @@ namespace libEmf
         static readonly HashSet<string> videoFileExtensions = new(StringComparer.OrdinalIgnoreCase) {
             ".ASF",
             ".AVI",
+            ".M2TS",
             ".M4V",
             ".MKV",
             ".MP4",
