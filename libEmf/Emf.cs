@@ -1,10 +1,11 @@
-﻿using System.Diagnostics;
+﻿using libForEachFileRecursively;
+using System.Diagnostics;
 
 namespace libEmf
 {
     public static class Emf
     {
-        public static void Execute(IEnumerable<string> paths, string encoderName, string[] options)
+        public static void Do(IEnumerable<string> paths, string encoderName, string[] options)
         {
             ForEachFileRecursively.Do(
                 paths,

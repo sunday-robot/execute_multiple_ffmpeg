@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libEmf", "libEmf\libEmf.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "emf", "emf\emf.csproj", "{815E2868-E1EF-4C18-84A9-A993AA78A860}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libForEachFileRecursively", "libForEachFileRecursively\libForEachFileRecursively.csproj", "{36A772BB-3C28-41C5-8DBA-DB38B3611BF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libForEachFileRecursivelySample", "libForEachFileRecursivelySample\libForEachFileRecursivelySample.csproj", "{32C4B97F-62C8-421C-8855-5AAD6A848696}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{815E2868-E1EF-4C18-84A9-A993AA78A860}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{815E2868-E1EF-4C18-84A9-A993AA78A860}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{815E2868-E1EF-4C18-84A9-A993AA78A860}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36A772BB-3C28-41C5-8DBA-DB38B3611BF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A772BB-3C28-41C5-8DBA-DB38B3611BF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A772BB-3C28-41C5-8DBA-DB38B3611BF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A772BB-3C28-41C5-8DBA-DB38B3611BF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32C4B97F-62C8-421C-8855-5AAD6A848696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32C4B97F-62C8-421C-8855-5AAD6A848696}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32C4B97F-62C8-421C-8855-5AAD6A848696}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32C4B97F-62C8-421C-8855-5AAD6A848696}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
