@@ -15,8 +15,7 @@
 /emf_nv/emf_nv.csproj.user
 /libEmf/bin
 /libEmf/obj
-/libForEachFileRecursively/bin/Debug
+/libForEachFileRecursively/bin
 /libForEachFileRecursively/obj
-/libForEachFileRecursivelySample/bin/Debug/net9.0-windows
+/libForEachFileRecursivelySample/bin
 /libForEachFileRecursivelySample/obj
-/libForEachFileRecursively/bin/Release/net9.0-windows
