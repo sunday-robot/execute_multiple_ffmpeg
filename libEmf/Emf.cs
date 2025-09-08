@@ -32,6 +32,7 @@ namespace libEmf
             ".M2TS",
             ".M4V",
             ".MKV",
+            ".MOV",
             ".MP4",
             ".MPEG",
             ".MPG",
