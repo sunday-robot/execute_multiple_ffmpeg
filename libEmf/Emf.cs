@@ -23,11 +23,12 @@ namespace libEmf
         }
 
         /// <summary>
-        /// 動画ファイルの拡張子のセット(OOrdinalIgnoreCaseは、大文字小文字を区別しないようにするためのもの)
+        /// 動画ファイルの拡張子のセット(OrdinalIgnoreCaseは、大文字小文字を区別しないようにするためのもの)
         /// </summary>
         static readonly HashSet<string> videoFileExtensions = new(StringComparer.OrdinalIgnoreCase) {
             ".ASF",
             ".AVI",
+            ".FLV",
             ".M2TS",
             ".M4V",
             ".MKV",
