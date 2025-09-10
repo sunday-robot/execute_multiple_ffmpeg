@@ -40,6 +40,7 @@ namespace libEmf
             ".RMVB",
             ".TS",
             ".VOB",
+            ".WEBM",
             ".WMV"
         };
 
