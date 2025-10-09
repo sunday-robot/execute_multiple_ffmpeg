@@ -49,7 +49,9 @@ namespace libEmf
         {
             Console.WriteLine($"{inputFilePath}");
 
-            var args = "-i";
+            string args = "";
+            args += "-hwaccel cuda";
+            args += " -i";
             args += " \"" + inputFilePath + "\"";
             args += " -c:v " + encoderName;
             var outputFilePath = inputFilePath + "." + encoderName;
@@ -57,7 +59,7 @@ namespace libEmf
                 foreach (var e in o.Split(' '))
                 {
                     args += " " + e;
-                    outputFilePath += "_" + e;
+                    outputFilePath += "_" + EncodeArgument(e);
                 }
             outputFilePath += ".mp4";
             args += " \"" + outputFilePath + "\"";
@@ -75,6 +77,11 @@ namespace libEmf
 #else
             Console.WriteLine($"{args}");
 #endif
+        }
+
+        static string EncodeArgument(string arg)
+        {
+            return arg.Replace(':', '_');
         }
     }
 }
