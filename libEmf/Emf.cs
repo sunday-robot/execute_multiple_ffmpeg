@@ -5,7 +5,7 @@ namespace libEmf
 {
     public static class Emf
     {
-        public static void Do(IEnumerable<string> paths, string encoderName, string[] options)
+        public static void Do(IEnumerable<string> paths, string encoderName, string[] options, string[] silentOptions)
         {
             ForEachFileRecursively.Do(
                 paths,
@@ -15,7 +15,7 @@ namespace libEmf
                     if (!videoFileExtensions.Contains(ext))
                         return;
 
-                    ExecuteFfmpeg(filePath, encoderName, options);
+                    ExecuteFfmpeg(filePath, encoderName, options, silentOptions);
                 });
             Console.WriteLine("Finished.");
             Console.WriteLine("Hit enter key.");
@@ -45,7 +45,7 @@ namespace libEmf
             ".WMV"
         };
 
-        static void ExecuteFfmpeg(string inputFilePath, string encoderName, string[] options)
+        static void ExecuteFfmpeg(string inputFilePath, string encoderName, string[] options, string[] silentOptions)
         {
             Console.WriteLine($"{inputFilePath}");
 
@@ -60,6 +60,11 @@ namespace libEmf
                 {
                     args += " " + e;
                     outputFilePath += "_" + EncodeArgument(e);
+                }
+            foreach (var o in silentOptions)
+                foreach (var e in o.Split(' '))
+                {
+                    args += " " + e;
                 }
             outputFilePath += ".mp4";
             args += " \"" + outputFilePath + "\"";

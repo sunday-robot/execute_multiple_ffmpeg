@@ -29,6 +29,6 @@ internal class Program
 
             "-preset p5",  // presetは、p1(最高画質、低速)～p7(低画質、高速)まである。p4がデフォルト。
             "-c:a copy",   // 音声は変換しない。
-        ]);
+        ], []);
     }
 }
