@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.5.33502.453
+# Visual Studio Version 18
+VisualStudioVersion = 18.4.11612.150 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "execute_multiple_ffmpeg", "execute_multiple_ffmpeg\execute_multiple_ffmpeg.csproj", "{93A34498-5A7B-4B82-B85E-3990F6A2CCDF}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libForEachFileRecursively", "libForEachFileRecursively\libForEachFileRecursively.csproj", "{36A772BB-3C28-41C5-8DBA-DB38B3611BF4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libForEachFileRecursivelySample", "libForEachFileRecursivelySample\libForEachFileRecursivelySample.csproj", "{32C4B97F-62C8-421C-8855-5AAD6A848696}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "emfTo4k", "emfTo4k\emfTo4k.csproj", "{5C3B8172-4424-492B-9E19-26BCCC8B1397}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{32C4B97F-62C8-421C-8855-5AAD6A848696}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32C4B97F-62C8-421C-8855-5AAD6A848696}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32C4B97F-62C8-421C-8855-5AAD6A848696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C3B8172-4424-492B-9E19-26BCCC8B1397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C3B8172-4424-492B-9E19-26BCCC8B1397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C3B8172-4424-492B-9E19-26BCCC8B1397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C3B8172-4424-492B-9E19-26BCCC8B1397}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
