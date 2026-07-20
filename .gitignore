@@ -21,3 +21,7 @@
 /libForEachFileRecursivelySample/obj
 /emfTo4k/bin
 /emfTo4k/obj
+/emfTo4kWithoutHwDecode/bin
+/emfTo4kWithoutHwDecode/obj
+/emfTo4kWithoutHwDecode/Properties/PublishProfiles/FolderProfile.pubxml.user
+/emfTo4kWithoutHwDecode/emfTo4kWithoutHwDecode.csproj.user

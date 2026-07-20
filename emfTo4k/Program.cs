@@ -4,7 +4,7 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        libEmf.Emf.Do(args, "libx265", [],
+        libEmf.Emf.Do(true, args, "libx265", [],
             [
             "-map 0:v", // 全ての映像ストリームを出力する
             "-map 0:a?", // 全ての音声ストリームを出力する

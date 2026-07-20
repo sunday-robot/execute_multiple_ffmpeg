@@ -8,7 +8,7 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        libEmf.Emf.Do(args, "hevc_nvenc", [
+        libEmf.Emf.Do(true, args, "hevc_nvenc", [
             // Use B frames as references (from 0 to 2) (default disabled)
             //     disabled        0            E..V....... B frames will not be used for reference
             //     each            1            E..V....... Each B frame will be used for reference

@@ -5,7 +5,7 @@ namespace libEmf
 {
     public static class Emf
     {
-        public static void Do(IEnumerable<string> paths, string encoderName, string[] options, string[] silentOptions)
+        public static void Do(bool decodeByCuda, IEnumerable<string> paths, string encoderName, string[] options, string[] silentOptions)
         {
             ForEachFileRecursively.Do(
                 paths,
@@ -15,7 +15,7 @@ namespace libEmf
                     if (!videoFileExtensions.Contains(ext))
                         return;
 
-                    ExecuteFfmpeg(filePath, encoderName, options, silentOptions);
+                    ExecuteFfmpeg(decodeByCuda, filePath, encoderName, options, silentOptions);
                 });
             Console.WriteLine("Finished.");
             Console.WriteLine("Hit enter key.");
@@ -45,12 +45,15 @@ namespace libEmf
             ".WMV"
         };
 
-        static void ExecuteFfmpeg(string inputFilePath, string encoderName, string[] options, string[] silentOptions)
+        static void ExecuteFfmpeg(bool decodeByCuda, string inputFilePath, string encoderName, string[] options, string[] silentOptions)
         {
             Console.WriteLine($"{inputFilePath}");
 
             string args = "";
-            args += "-hwaccel cuda";
+            if (decodeByCuda)
+            {
+                args += "-hwaccel cuda";
+            }
             args += " -i";
             args += " \"" + inputFilePath + "\"";
             args += " -c:v " + encoderName;
