@@ -12,7 +12,8 @@ internal class Program
             "-map 0:t?", // 全てのタグストリームを出力する
             "-map_chapters 0", // 全てのチャプターストリームをコピーする
             "-map_metadata 0", // 全てのストリームのメタデータをコピーする
-            "-c:a copy",   // 音声は変換しない
+            "-c:a aac",   // 音声はAAC
+            "-b:a 192k",   // 音声ビットレートを192kbpsに設定
             "-c:s copy",   // 字幕は変換しない
         ]);
     }
