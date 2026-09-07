@@ -11,7 +11,6 @@ namespace emfTo4kWithoutHwDecode
                 "-map 0:v", // 全ての映像ストリームを出力する
             "-map 0:a?", // 全ての音声ストリームを出力する
             "-map 0:s?", // 全ての字幕ストリームを出力する
-            "-map 0:t?", // 全てのタグストリームを出力する
             "-map_chapters 0", // 全てのチャプターストリームをコピーする
             "-map_metadata 0", // 全てのストリームのメタデータをコピーする
             "-c:a aac",   // 音声はAAC
