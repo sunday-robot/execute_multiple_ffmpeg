@@ -1,14 +1,12 @@
-﻿using libEmf;
+﻿namespace emfTo4kWithoutHwDecode;
 
-namespace emfTo4kWithoutHwDecode
+internal class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Emf.Do(false, args, "libx265", [],
-                [
-                "-map 0:v", // 全ての映像ストリームを出力する
+        libEmf.Emf.Do(libEmf.Decoder.None, args, "libx265", [],
+            [
+            "-map 0:v", // 全ての映像ストリームを出力する
             "-map 0:a?", // 全ての音声ストリームを出力する
             "-map 0:s?", // 全ての字幕ストリームを出力する
             "-map_chapters 0", // 全てのチャプターストリームをコピーする
@@ -18,7 +16,5 @@ namespace emfTo4kWithoutHwDecode
             "-c:s copy",   // 字幕は変換しない
             "-vf scale=4096:-2:flags=lanczos", // 映像の横幅を4096にスケーリングする(縦方向は自動計算し、かつ偶数にする)"
         ]);
-        }
     }
-
 }

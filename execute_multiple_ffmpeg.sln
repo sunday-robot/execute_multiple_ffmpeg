@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "emfTo4k", "emfTo4k\emfTo4k.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "emfTo4kWithoutHwDecode", "emfTo4kWithoutHwDecode\emfTo4kWithoutHwDecode.csproj", "{DB96C6AF-6041-6830-2D13-EC6C57C07E52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "emfWithoutHwDecode", "emfWithoutHwDecode\emfWithoutHwDecode.csproj", "{23DE9079-3348-4FAF-891E-C2E4689F224C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "emfAmd", "emfAmd\emfAmd.csproj", "{068183A4-DDDF-E25F-4465-0ACA8FAA61A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,10 +59,10 @@ Global
 		{DB96C6AF-6041-6830-2D13-EC6C57C07E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB96C6AF-6041-6830-2D13-EC6C57C07E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB96C6AF-6041-6830-2D13-EC6C57C07E52}.Release|Any CPU.Build.0 = Release|Any CPU
-		{23DE9079-3348-4FAF-891E-C2E4689F224C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23DE9079-3348-4FAF-891E-C2E4689F224C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23DE9079-3348-4FAF-891E-C2E4689F224C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23DE9079-3348-4FAF-891E-C2E4689F224C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{068183A4-DDDF-E25F-4465-0ACA8FAA61A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{068183A4-DDDF-E25F-4465-0ACA8FAA61A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{068183A4-DDDF-E25F-4465-0ACA8FAA61A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{068183A4-DDDF-E25F-4465-0ACA8FAA61A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
