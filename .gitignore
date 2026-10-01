@@ -30,3 +30,6 @@
 /emfWithoutHwDecode/obj
 /emfAmd/bin
 /emfAmd/obj
+/emfTo4kAmd/bin/Debug/net10.0-windows
+/emfTo4kAmd/obj
+/emfTo4kAmd/bin/Release/net10.0-windows
