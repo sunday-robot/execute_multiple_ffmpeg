@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "emfAmd", "emfAmd\emfAmd.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "emfTo4kAmd", "emfTo4kAmd\emfTo4kAmd.csproj", "{6E63F0CD-F445-493A-A161-137DB3AF65CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "emfWithoutSubtitle", "emfWithoutSubtitle\emfWithoutSubtitle.csproj", "{8B3BD12C-F75C-4739-A8DF-ABDEC981BE73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{6E63F0CD-F445-493A-A161-137DB3AF65CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E63F0CD-F445-493A-A161-137DB3AF65CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E63F0CD-F445-493A-A161-137DB3AF65CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B3BD12C-F75C-4739-A8DF-ABDEC981BE73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B3BD12C-F75C-4739-A8DF-ABDEC981BE73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B3BD12C-F75C-4739-A8DF-ABDEC981BE73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B3BD12C-F75C-4739-A8DF-ABDEC981BE73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
