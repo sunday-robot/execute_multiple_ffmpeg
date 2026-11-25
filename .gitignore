@@ -33,3 +33,7 @@
 /emfTo4kAmd/bin/Debug/net10.0-windows
 /emfTo4kAmd/obj
 /emfTo4kAmd/bin/Release/net10.0-windows
+/emfWithoutSubtitle/bin
+/emfWithoutSubtitle/obj
+/emfWithoutSubtitle/Properties/PublishProfiles/FolderProfile.pubxml.user
+/emfWithoutSubtitle/emfWithoutSubtitle.csproj.user
